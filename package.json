@@ -1,0 +1,12 @@
+{
+  "name": "dickhead-landing",
+  "version": "1.0.0",
+  "description": "Degen-style Solana memecoin landing page for $DICKHEAD",
+  "private": true,
+  "scripts": {
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
