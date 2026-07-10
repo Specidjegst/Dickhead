@@ -1,78 +1,37 @@
-# 💎 $DICKHEAD — Degen Memecoin Landing Page
+# ★✡ $DICKHEAD — Weird-Web Landing Page
 
-A fast, single-page, **no-build** landing page for a Solana memecoin, built in pure
-HTML / CSS / JS. Degen styling, live market cap, one-click contract-address copy,
-and social links. Drop it on any static host and you're live.
+A single-file, intentionally "broken" 90s weird-web page for the $DICKHEAD coin.
+Everything lives in `index.html` — all images are embedded as data URIs, there are
+no external requests, no build step, no dependencies.
 
-![Solana](https://img.shields.io/badge/chain-Solana-9945FF) ![No build step](https://img.shields.io/badge/build-none-14F195)
+## What's on it
 
----
+- **Splash screen** ("ARE YOU TIRED OF WINNING?") with spinning ammo ring —
+  click *I GUESS* to enter
+- **Marquee**: BUY THE COIN AND HOLD IT DONT JEEEEEEEEET ★
+- **$DICKHEAD ticker banner** with glitch animation
+- Floating cutout photos in the background (Web Animations API)
+- News / Status / Guestbook / Links panels, fake visitor counter
+- Wildly scattered **gallery** with barbed-wire frames (20 photo slots)
+- Grime/grain/vignette overlays for the aged look
 
-## ✨ Features
+## Customize
 
-- 🎨 **Pixel-flat design** taken 1:1 from the mascot artwork — flat purple, hard pixel borders, Press Start 2P headings
-- 📋 **Contract Address (CA)** box with copy-to-clipboard + toast feedback
-- 📈 **Live Market Cap, Price & 24h change** — auto-fetched from the free
-  [DexScreener API](https://docs.dexscreener.com/api/reference) once the coin launches
-- 🔗 **Social links** (X/Twitter, Telegram, Discord, DexScreener)
-- 🧮 Tokenomics, "How to Ape" steps, animated supply counter
-- 📱 Fully responsive + respects `prefers-reduced-motion`
+- **Photos:** in `index.html`, find the `PHOTOS` array and replace `null`
+  entries with image URLs/paths (e.g. `"photos/01.jpg"`).
+- **Motif:** the `<html data-motif="mixed">` attribute switches the color/theme
+  preset (`mixed`, `america`, `israel` — see the `MOTIFS` object).
+- **Texts:** marquee, news, links, footer etc. live in the `MOTIFS` object and
+  `applyMotif()`.
 
----
-
-## 🛠 Customize it (the only file edits you need)
-
-Everything you'll want to change is marked clearly. The essentials:
-
-### 1. Contract address + live stats — `assets/js/main.js`
-```js
-const CONFIG = {
-  contractAddress: "PASTE_YOUR_REAL_SOLANA_MINT_HERE",
-  chain: "solana",
-  refreshMs: 30000,
-};
-```
-Until you paste the real CA, the stats show `SOON™`. After launch they go live
-automatically (market cap, price, 24h %, and the chart links all wire up to the
-deepest-liquidity DexScreener pair).
-
-### 2. Coin name / copy / ticker — `index.html`
-Search & replace `DICKHEAD` / `$DICK` if you want a different name, and edit the
-hero tagline, about cards and tokenomics text.
-
-### 3. Social links — `index.html`
-Replace the placeholder `href="https://x.com/"`, `https://t.me/`,
-`https://discord.com/` with your real community links (they appear in the nav and
-the **Join the Degens** section).
-
-### 4. Colors — `assets/css/styles.css`
-Tweak the `:root` variables (`--purple`, `--pink`, `--green`, `--orange`, `--ink`, …).
-The palette is sampled 1:1 from the mascot (`assets/img/mascot.png`).
-
----
-
-## 🚀 Run locally
-
-It's a static site — just open `index.html`, or serve it for clean paths:
+## Run locally
 
 ```bash
-# Python
-python3 -m http.server 8000
-# then open http://localhost:8000
-
-# …or Node
-npx serve .
+python3 -m http.server 8000   # or: npx serve .
+# or just open index.html
 ```
 
-## ☁️ Deploy (pick one)
-
-- **Railway** — connect the GitHub repo; it runs `node server.js` (see below).
-- **GitHub Pages** — Settings → Pages → deploy from branch (root).
-- **Netlify / Vercel** — drag-and-drop the folder, or connect the repo. No build
-  command, publish directory = `.`.
-- **Cloudflare Pages** — same, no build step.
-
-### Railway + custom domain (`dickhead.media`)
+## Deploy — Railway + custom domain (`dickhead.media`)
 
 Railway runs a process that listens on `$PORT`, so this repo ships a tiny
 zero-dependency static server (`server.js`) plus `package.json` and
@@ -84,42 +43,22 @@ zero-dependency static server (`server.js`) plus `package.json` and
 2. **Add the domain:** service → *Settings* → *Networking* → *Custom Domain* →
    add `dickhead.media` (add `www.dickhead.media` too if you want both). Railway
    shows you the exact DNS target to point at.
-3. **Point DNS at the registrar / DNS host for `dickhead.media`:**
-   - `www.dickhead.media` → **CNAME** → the `…up.railway.app` target Railway gave.
-   - `dickhead.media` (apex/root) → CNAME isn't allowed at the apex by spec, so
-     use a DNS provider with **CNAME flattening / ALIAS / ANAME** (Cloudflare does
-     this automatically) and point it at the same Railway target. If your host
-     can't flatten, instead point `www` (CNAME) and redirect the root → `www`.
-4. **Wait:** Railway auto-issues SSL once DNS resolves (usually minutes, up to
-   ~24–48h for full propagation). When the domain shows ✅ in Railway, you're live
-   at `https://dickhead.media`.
+3. **Point DNS:** `www` → CNAME → the Railway target; apex via CNAME
+   flattening/ALIAS (Cloudflare does this automatically).
+4. **Wait** for DNS + auto-SSL, then you're live at `https://dickhead.media`.
 
-Local sanity check (same as Railway):
-```bash
-PORT=8137 node server.js   # → http://localhost:8137
-```
+Local sanity check (same as Railway): `PORT=8137 node server.js`
 
----
+GitHub Pages / Netlify / Vercel / Cloudflare Pages also work — it's just a
+static file, publish directory = `.`.
 
-## 📁 Structure
+## Structure
 
 ```
 .
-├── index.html            # markup + content
-├── assets/
-│   ├── css/styles.css    # all styling (pixel-flat mascot theme)
-│   ├── img/              # pixel mascot (24×24 PNG + og-image)
-│   └── js/main.js        # copy CA, live stats, animations  ← edit CONFIG here
-├── server.js             # zero-dependency static server (Railway / $PORT)
-├── package.json          # npm start → node server.js
-├── railway.json          # Railway build + start config
+├── index.html      # the entire site (markup, styles, scripts, embedded images)
+├── server.js       # zero-dependency static server (Railway / $PORT)
+├── package.json    # npm start → node server.js
+├── railway.json    # Railway build + start config
 └── README.md
 ```
-
----
-
-## ⚠️ Disclaimer
-
-This is a meme coin landing page for **entertainment purposes only**. Nothing here
-is financial advice. Crypto is risky — DYOR and never invest more than you can
-afford to lose.
