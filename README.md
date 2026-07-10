@@ -10,7 +10,7 @@ and social links. Drop it on any static host and you're live.
 
 ## ✨ Features
 
-- ⚡ **Degen-styled** hero with Solana gradient, glitch text & animated background
+- 🎨 **Pixel-flat design** taken 1:1 from the mascot artwork — flat purple, hard pixel borders, Press Start 2P headings
 - 📋 **Contract Address (CA)** box with copy-to-clipboard + toast feedback
 - 📈 **Live Market Cap, Price & 24h change** — auto-fetched from the free
   [DexScreener API](https://docs.dexscreener.com/api/reference) once the coin launches
@@ -46,7 +46,8 @@ Replace the placeholder `href="https://x.com/"`, `https://t.me/`,
 the **Join the Degens** section).
 
 ### 4. Colors — `assets/css/styles.css`
-Tweak the `:root` variables (`--sol-purple`, `--sol-green`, `--bg`, …).
+Tweak the `:root` variables (`--purple`, `--pink`, `--green`, `--orange`, `--ink`, …).
+The palette is sampled 1:1 from the mascot (`assets/img/mascot.png`).
 
 ---
 
@@ -106,7 +107,8 @@ PORT=8137 node server.js   # → http://localhost:8137
 .
 ├── index.html            # markup + content
 ├── assets/
-│   ├── css/styles.css    # all styling (Solana theme)
+│   ├── css/styles.css    # all styling (pixel-flat mascot theme)
+│   ├── img/              # pixel mascot (24×24 PNG + og-image)
 │   └── js/main.js        # copy CA, live stats, animations  ← edit CONFIG here
 ├── server.js             # zero-dependency static server (Railway / $PORT)
 ├── package.json          # npm start → node server.js

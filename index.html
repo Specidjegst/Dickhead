@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="theme-color" content="#0a0a0f" />
+  <meta name="theme-color" content="#5115FF" />
 
   <title>$DICK — The Degen Coin on Solana</title>
   <meta name="description" content="$DICKHEAD — the most degen memecoin on Solana. Diamond hands only. WAGMI. LFG. To the moon." />
@@ -15,24 +15,20 @@
   <meta property="og:image" content="assets/img/og-image.png" />
   <meta name="twitter:card" content="summary_large_image" />
 
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💎</text></svg>" />
+  <link rel="icon" type="image/png" href="assets/img/mascot.png" />
+  <link rel="apple-touch-icon" href="assets/img/og-image.png" />
 
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet" />
+  <!-- Fonts are self-hosted (assets/fonts/) — no external requests -->
+  <link rel="preload" href="assets/fonts/press-start-2p-latin.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="assets/fonts/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin />
 
   <link rel="stylesheet" href="assets/css/styles.css" />
 </head>
 <body>
-  <!-- Animated gradient background -->
-  <div class="bg-glow" aria-hidden="true"></div>
-  <div class="bg-grid" aria-hidden="true"></div>
-
   <!-- ============ NAV ============ -->
   <header class="nav" id="top">
     <a href="#top" class="nav__logo">
-      <span class="nav__logo-emoji">💎</span>
+      <img class="nav__logo-img pixel" src="assets/img/mascot.png" alt="" width="32" height="32" />
       <span>$DICK</span>
     </a>
 
@@ -44,8 +40,8 @@
     </nav>
 
     <div class="nav__socials">
-      <a class="icon-btn" href="https://x.com/" target="_blank" rel="noopener" aria-label="X / Twitter" data-social="x">𝕏</a>
-      <a class="icon-btn" href="https://t.me/" target="_blank" rel="noopener" aria-label="Telegram" data-social="tg">✈</a>
+      <a class="icon-btn" href="https://x.com/" target="_blank" rel="noopener" aria-label="X / Twitter">𝕏</a>
+      <a class="icon-btn" href="https://t.me/" target="_blank" rel="noopener" aria-label="Telegram">✈</a>
       <a class="btn btn--small" href="#buy">BUY NOW</a>
     </div>
   </header>
@@ -53,18 +49,15 @@
   <!-- ============ HERO ============ -->
   <main>
     <section class="hero" id="buy">
-      <div class="hero__badge">⚡ Live on Solana</div>
+      <img class="hero__mascot pixel" src="assets/img/mascot-alpha.png" alt="$DICKHEAD pixel mascot" width="240" height="240" />
 
-      <h1 class="hero__title">
-        <span class="hero__title-line glitch" data-text="DICKHEAD">DICKHEAD</span>
-      </h1>
-
+      <h1 class="hero__title">DICKHEAD</h1>
       <p class="hero__ticker">$DICK</p>
 
       <p class="hero__tagline">
-        The most <span class="hl">degen</span> memecoin on Solana.
-        No utility. No roadmap. Just <span class="hl">vibes</span> and
-        <span class="hl">diamond hands</span>. 💎🙌
+        The most <span class="hl hl--pink">degen</span> memecoin on Solana.
+        No utility. No roadmap. Just <span class="hl hl--green">vibes</span> and
+        <span class="hl hl--orange">diamond hands</span>.
       </p>
 
       <!-- Live market cap -->
@@ -93,26 +86,14 @@
             <span class="ca__copy-text">COPY</span>
           </button>
         </div>
-        <span class="ca__hint">⚠️ Always verify the CA before you ape. Don't trust, verify.</span>
+        <span class="ca__hint">Always verify the CA before you ape. Don't trust, verify.</span>
       </div>
 
       <div class="hero__cta">
-        <a class="btn btn--big" href="#how">🚀 APE IN NOW</a>
-        <a class="btn btn--ghost btn--big" href="#" id="chart-link" target="_blank" rel="noopener">📈 View Chart</a>
+        <a class="btn btn--big" href="#how">APE IN NOW</a>
+        <a class="btn btn--ghost btn--big" href="#" id="chart-link" target="_blank" rel="noopener">VIEW CHART</a>
       </div>
     </section>
-
-    <!-- ============ MARQUEE ============ -->
-    <div class="marquee" aria-hidden="true">
-      <div class="marquee__track">
-        <span>WAGMI&nbsp;💎</span><span>LFG&nbsp;🚀</span><span>TO THE MOON&nbsp;🌕</span>
-        <span>DIAMOND HANDS&nbsp;🙌</span><span>FEW UNDERSTAND&nbsp;🧠</span><span>HODL&nbsp;⚓</span>
-        <span>NGMI? NEVER&nbsp;🔥</span><span>$DICK&nbsp;💎</span>
-        <span>WAGMI&nbsp;💎</span><span>LFG&nbsp;🚀</span><span>TO THE MOON&nbsp;🌕</span>
-        <span>DIAMOND HANDS&nbsp;🙌</span><span>FEW UNDERSTAND&nbsp;🧠</span><span>HODL&nbsp;⚓</span>
-        <span>NGMI? NEVER&nbsp;🔥</span><span>$DICK&nbsp;💎</span>
-      </div>
-    </div>
 
     <!-- ============ ABOUT ============ -->
     <section class="section" id="about">
@@ -123,22 +104,22 @@
 
       <div class="about">
         <div class="about__card">
-          <span class="about__emoji">🧬</span>
+          <span class="px-dot px-dot--pink" aria-hidden="true"></span>
           <h3>100% Degen</h3>
           <p>Born in the trenches. Built different. $DICK is pure unfiltered memecoin energy — the chad of Solana.</p>
         </div>
         <div class="about__card">
-          <span class="about__emoji">🔒</span>
+          <span class="px-dot px-dot--green" aria-hidden="true"></span>
           <h3>LP Burned · Renounced</h3>
-          <p>Liquidity locked & burned. Mint authority renounced. No rugs here, ser. Only diamond hands survive.</p>
+          <p>Liquidity locked &amp; burned. Mint authority renounced. No rugs here, ser. Only diamond hands survive.</p>
         </div>
         <div class="about__card">
-          <span class="about__emoji">⚡</span>
+          <span class="px-dot px-dot--orange" aria-hidden="true"></span>
           <h3>Solana Speed</h3>
           <p>Lightning fast. Dirt cheap fees. The only chain fast enough to handle this much degeneracy.</p>
         </div>
         <div class="about__card">
-          <span class="about__emoji">🤝</span>
+          <span class="px-dot px-dot--purple" aria-hidden="true"></span>
           <h3>Community Owned</h3>
           <p>No VCs. No insiders. 100% community. We're all gonna make it — together. WAGMI.</p>
         </div>
@@ -200,7 +181,7 @@
         <div class="step">
           <span class="step__num">04</span>
           <h3>Diamond Hand It</h3>
-          <p>Welcome to the family. Now HODL like your life depends on it. 💎🙌 WAGMI.</p>
+          <p>Welcome to the family. Now HODL like your life depends on it. WAGMI.</p>
         </div>
       </div>
     </section>
@@ -239,7 +220,8 @@
 
   <!-- ============ FOOTER ============ -->
   <footer class="footer">
-    <div class="footer__logo">💎 $DICK</div>
+    <img class="footer__mascot pixel" src="assets/img/mascot-alpha.png" alt="" width="72" height="72" />
+    <div class="footer__logo">$DICK</div>
     <p class="footer__disclaimer">
       $DICKHEAD is a meme coin with no intrinsic value or expectation of financial return.
       There is no formal team or roadmap. The coin is for entertainment purposes only.
