@@ -321,7 +321,7 @@ function applyMotif(key){
   document.getElementById('news-list').innerHTML=m.news.map(x=>'<li>'+x+'</li>').join('');
   document.getElementById('links-title').textContent=m.linksTitle;
   document.getElementById('links-list').innerHTML=m.links.map(l=>'<li><a href="'+l[1]+'">'+l[0]+'</a></li>').join('');
-  document.getElementById('nav').innerHTML=["\u25b7 dexscreener","\u25b7 x","\u25b7 aipac","\u25b7 McDonald's"].map(x=>'<button>'+x+'</button>').join('');
+  document.getElementById('nav').innerHTML=[["\u25b7 dexscreener",null],["\u25b7 x","https://x.com/OGdickhead420"],["\u25b7 aipac","https://www.aipac.org/"],["\u25b7 McDonald's","https://www.mcdonalds.com/us/en-us.html"]].map(([x,u])=>'<button'+(u?' onclick="window.open(\''+u+'\',\'_blank\')"':'')+'>'+x+'</button>').join('');
   document.getElementById('webring').textContent=m.webring;
   document.getElementById('footer').textContent=m.footer;
 }
