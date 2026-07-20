@@ -9,3 +9,6 @@ Thumbs.db
 node_modules/
 dist/
 .cache/
+
+# Guestbook data (written by server.js at runtime)
+guestbook.json

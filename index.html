@@ -343,12 +343,17 @@ function startCounter(){
   document.getElementById('counter').textContent='0042069';
 }
 
-const guests=[];
+let guests=[];
+function escG(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
+function renderGuests(){document.getElementById('g-list').innerHTML=guests.map(g=>'<div><b>'+escG(g.name)+'</b> ('+escG(g.t)+'): '+escG(g.msg)+'</div>').join('');}
+function saveGuestsLocal(){try{localStorage.setItem('dickhead-guests',JSON.stringify(guests.slice(0,100)))}catch(e){}}
+fetch('/guestbook').then(r=>r.ok?r.json():Promise.reject()).then(l=>{guests=l;renderGuests();}).catch(()=>{try{guests=JSON.parse(localStorage.getItem('dickhead-guests')||'[]');renderGuests();}catch(e){}});
 document.getElementById('g-send').addEventListener('click',()=>{
   const name=(document.getElementById('g-name').value||'anon').trim();
   const msg=(document.getElementById('g-msg').value||'…').trim();
   guests.unshift({name,msg,t:new Date().toLocaleDateString()});
-  document.getElementById('g-list').innerHTML=guests.map(g=>'<div><b>'+g.name+'</b> ('+g.t+'): '+g.msg+'</div>').join('');
+  renderGuests();saveGuestsLocal();
+  fetch('/guestbook',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({name,msg})}).then(r=>r.ok?r.json():Promise.reject()).then(l=>{guests=l;renderGuests();saveGuestsLocal();}).catch(()=>{});
   document.getElementById('g-name').value=''; document.getElementById('g-msg').value='';
 });
 
