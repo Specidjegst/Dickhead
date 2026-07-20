@@ -165,7 +165,6 @@ body.entered .bwire-extra{display:none}
     <button id="g-send">SUBMIT</button>
     <div class="guest-list" id="g-list"></div>
   </section>
-  <section class="panel"><h2 id="links-title">LINKS</h2><ul id="links-list"></ul></section>
 
   <div class="stars-row">✡ ★ ✡ ★ ✡</div>
 
@@ -358,8 +357,6 @@ function applyMotif(key){
   (function(){var b=("BUY THE COIN AND HOLD IT DONT JEEEEEEEEET \u2605 ").repeat(6);var mq=document.getElementById('mq');if(mq)mq.innerHTML='<span class="mq-item">'+b+'</span><span class="mq-item">'+b+'</span>';})();
   document.getElementById('status-text').textContent=m.status;
   document.getElementById('news-list').innerHTML=m.news.map(x=>'<li>'+x+'</li>').join('');
-  document.getElementById('links-title').textContent=m.linksTitle;
-  document.getElementById('links-list').innerHTML=m.links.map(l=>'<li><a href="'+l[1]+'">'+l[0]+'</a></li>').join('');
   document.getElementById('nav').innerHTML=[["\u25b7 Pons","https://de.pons.com/"],["\u25b7 x","https://x.com/OGdickhead420"],["\u25b7 aipac","https://www.aipac.org/"],["\u25b7 McDonald's","https://www.mcdonalds.com/us/en-us.html"]].map(([x,u])=>'<button'+(u?' onclick="window.open(\''+u+'\',\'_blank\')"':'')+'>'+x+'</button>').join('');
   document.getElementById('webring').textContent=m.webring;
   document.getElementById('footer').textContent=m.footer;
