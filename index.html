@@ -60,7 +60,10 @@ a{color:var(--hot2)} a:hover{color:var(--hot);text-decoration:underline wavy}
 .banner{text-align:left;font-family:var(--display);font-size:clamp(30px,9vw,72px);letter-spacing:3px;margin:6px 0 2px;color:var(--ink);text-shadow:3px 3px 0 var(--hot2),-2px -2px 0 var(--hot),1px 2px 4px rgba(0,0,0,.55);animation:glitch 3s infinite steps(2);transform:rotate(-1.5deg)}
 .buyline{text-align:center;font-family:var(--display);font-size:clamp(18px,4.5vw,40px);letter-spacing:2px;color:var(--ink);text-shadow:2px 2px 0 var(--hot2);margin:8px 0 0;transform:rotate(-1deg)}
 .banner.ticker{text-align:center;color:#ff2733;font-size:clamp(46px,15vw,128px);text-shadow:none;animation:tickjit 3s infinite steps(2);white-space:nowrap}
-@media (max-width:480px){.banner.ticker{font-size:clamp(28px,12vw,58px);letter-spacing:1px}}
+@media (max-width:480px){
+  .banner.ticker{font-size:clamp(28px,12vw,58px);letter-spacing:1px;position:relative;z-index:8}
+  img.diggy-fig{height:150px}
+}
 .banner.ticker span{display:inline-block;line-height:1}
 .banner.ticker span:nth-child(1){color:#ffd23b;transform:rotate(-8deg) translateY(-6px);font-size:.95em;text-shadow:3px 3px 0 var(--hot)}
 .banner.ticker span:nth-child(2){color:#ff2e4d;transform:rotate(5deg);font-size:1.05em;text-shadow:-3px 3px 0 var(--hot2)}
