@@ -153,7 +153,7 @@ body.entered .bwire-extra{display:none}
 
   <section class="panel"><h2 id="news-title">NEWS</h2><ul id="news-list"></ul></section>
   <section class="panel"><h2 id="status-title">★ STATUS ✡</h2><p id="status-text"></p>
-    <div class="counter-wrap">Visitors:<br><span class="counter" id="counter">0000000</span></div>
+    <div class="counter-wrap">Visitors:<br><span class="counter" id="counter">0042069</span></div>
   </section>
   <section class="panel guest"><h2>GUESTBOOK</h2>
     <input id="g-name" placeholder="your name / handle" maxlength="24">
@@ -340,9 +340,7 @@ function enterCity(){ document.body.classList.add('entered'); document.getElemen
 document.getElementById('enter-btn').addEventListener('click',enterCity);
 
 function startCounter(){
-  const el=document.getElementById('counter'); let n=1948+Math.floor(Math.random()*90000);
-  el.textContent=String(n).padStart(7,'0');
-  setInterval(()=>{ n+=Math.floor(Math.random()*3); el.textContent=String(n).padStart(7,'0'); },2500);
+  document.getElementById('counter').textContent='0042069';
 }
 
 const guests=[];
