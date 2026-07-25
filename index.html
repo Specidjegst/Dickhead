@@ -353,13 +353,27 @@ function buildGallery(){
   g.appendChild(pair);
 }
 
+const CA='0x49a158a728bcb3985c0e64bac7fdff0d965e9874';
+function copyCA(){
+  const b=document.getElementById('ca-btn');
+  const done=()=>{ b.textContent='✔ COPIED'; setTimeout(()=>{ b.textContent='▷ CA 0x49a1…9874'; },1500); };
+  if(navigator.clipboard&&navigator.clipboard.writeText){ navigator.clipboard.writeText(CA).then(done).catch(()=>fallbackCopy(done)); }
+  else fallbackCopy(done);
+}
+function fallbackCopy(done){
+  const ta=document.createElement('textarea'); ta.value=CA; ta.style.position='fixed'; ta.style.opacity='0';
+  document.body.appendChild(ta); ta.select();
+  try{ document.execCommand('copy'); done(); }catch(e){}
+  document.body.removeChild(ta);
+}
+
 function applyMotif(key){
   const m=MOTIFS[key];
   document.documentElement.setAttribute('data-motif',key);
   (function(){var b=("BUY THE COIN AND HOLD IT DONT JEET \u2605 ").repeat(6);var mq=document.getElementById('mq');if(mq)mq.innerHTML='<span class="mq-item">'+b+'</span><span class="mq-item">'+b+'</span>';})();
   document.getElementById('status-text').textContent=m.status;
   document.getElementById('news-list').innerHTML=m.news.map(x=>'<li>'+x+'</li>').join('');
-  document.getElementById('nav').innerHTML=[["\u25b7 x","https://x.com/OGdickhead42069"],["\u25b7 aipac","https://www.aipac.org/"],["\u25b7 McDonald's","https://www.mcdonalds.com/us/en-us.html"]].map(([x,u])=>'<button'+(u?' onclick="window.open(\''+u+'\',\'_blank\')"':'')+'>'+x+'</button>').join('');
+  document.getElementById('nav').innerHTML='<button id="ca-btn" title="'+CA+'" onclick="copyCA()">\u25b7 CA 0x49a1\u20269874</button>'+[["\u25b7 x","https://x.com/OGdickhead42069"],["\u25b7 aipac","https://www.aipac.org/"],["\u25b7 McDonald's","https://www.mcdonalds.com/us/en-us.html"]].map(([x,u])=>'<button'+(u?' onclick="window.open(\''+u+'\',\'_blank\')"':'')+'>'+x+'</button>').join('');
   document.getElementById('webring').textContent=m.webring;
   document.getElementById('footer').textContent=m.footer;
 }
